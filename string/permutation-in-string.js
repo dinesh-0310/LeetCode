@@ -16,5 +16,7 @@ var checkInclusion = function(s1, s2) {
             index = 0;
         }
     }
+
+    if(index == reverseS1.length) return true;
     return false;
 };
