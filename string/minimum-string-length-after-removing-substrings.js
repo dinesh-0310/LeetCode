@@ -13,11 +13,11 @@ var minLength = function(s) {
                 i
             })
         }else{
-            if(arr[i] == 'B' && stack[stack.length - 1].ele == 'A'){
+            if(arr[i] == 'B' && stack[stack.length - 1] && stack[stack.length - 1].ele == 'A'){
                 arr[i] = "";
                 arr[stack[stack.length - 1].i] = "";
                 stack.pop();
-            }else if(arr[i] == 'D' && stack[stack.length - 1].ele == 'C'){
+            }else if(arr[i] == 'D' && stack[stack.length - 1] && stack[stack.length - 1].ele == 'C'){
                 arr[i] = "";
                 arr[stack[stack.length - 1].i] = "";
                 stack.pop();
