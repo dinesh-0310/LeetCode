@@ -4,21 +4,16 @@
  */
 var maximumSwap = function(num) {
     let arr = num.toString().split("");
-    let pointer1 = 0;
-    let pointer2 = arr.length - 1;
     let ans = num;
-    while(pointer1 < pointer2){
-        let tempArr = [...arr];
-        if(arr[pointer1] < arr[pointer2]){
-            [tempArr[pointer1], tempArr[pointer2]] = [tempArr[pointer2], tempArr[pointer1]];
-            let tempAns = Number(tempArr.join(""));
-            if(tempAns > ans) ans = tempAns;
-             pointer2--;
-        }else{
-            pointer1++;
+    for(let i = 0; i < arr.length-1; i++){
+        for(let j = 1; j < arr.length; j++){
+            if(arr[j] > arr[i]){
+                let tempArr = [...arr];
+                [tempArr[i], tempArr[j]] = [tempArr[j], tempArr[i]];
+                let tempAns = Number(tempArr.join(""));
+                if(tempAns > ans) ans = tempAns;
+            }
         }
-       
     }
-
-    return ans;
+    return ans
 };
