@@ -13,8 +13,11 @@ var maximumSwap = function(num) {
             [tempArr[pointer1], tempArr[pointer2]] = [tempArr[pointer2], tempArr[pointer1]];
             let tempAns = Number(tempArr.join(""));
             if(tempAns > ans) ans = tempAns;
+             pointer2--;
+        }else{
+            pointer1++;
         }
-        pointer2--;
+       
     }
 
     return ans;
