@@ -3,21 +3,24 @@
  * @return {number}
  */
 var maxUniqueSplit = function(s) {
-    const set = new Set();
-    let count = 0;
-    let str = "";
-    for(let i = 0; i < s.length; i++){
-        if(str || set.has(s[i])){
-            str = str + s[i];
-            if(!set.has(str)){
-                count++;
-                set.add(str);
-                str = "";
-            }
-        }else{
-            set.add(s[i]);
-            count++;
+    let res = 1;
+    let strings = new Set();
+
+    function search(s) {
+        if (!strings.has(s)) {
+            strings.add(s);
+            res = Math.max(res, strings.size);
+            strings.delete(s);
+        }
+
+        for (let i = 1; i < s.length; i++) {
+            const sub = s.substring(0, i);
+            if (strings.has(sub)) continue;
+            strings.add(sub);
+            search(s.substring(i));
+            strings.delete(sub);
         }
     }
-    return count;
+    search(s);
+    return res;
 };
