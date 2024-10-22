@@ -17,7 +17,7 @@ var kthLargestLevelSum = function(root, k) {
 
     updateObject(root, obj, 0);
     //console.log("obj: ",obj)
-    if(k >= Object.keys(obj).length) return -1;
+    if(k > Object.keys(obj).length) return -1;
     const values = Object.values(obj).sort((a,b) => b - a);
     return values[k-1];
 };
